@@ -1,6 +1,6 @@
 import numpy as np
 from matplotlib.pylab import scatter, show, legend, xlabel, ylabel
-
+import scipy.optimize as opt
 import function
 
 data = np.loadtxt('ex2data1.txt', delimiter=',')
@@ -41,11 +41,14 @@ print("Expected gradients (approx):\n -0.1000\n -12.0092\n"
 test_theta = np.array([[-24], [0.2], [0.2]])
 cost, grad = function.cost_function(test_theta, X, y)
 
-print(f"cost at test theta: \n",cost);
+print(f"cost at test theta: \n", cost)
 print("expected cost (approx): 0.218\n")
 print(f"gradient at test theta:\n", grad)
 print("Expected gradients (approx):\n0.043\n 2.566\n 2.647\n")
 
-#input("Press Enter to continue...")
+input("Press Enter to continue...")
+# predict and compute accuracy of training set
 
-
+p = function.predict(test_theta, X)
+print('Train Accuracy: %f'
+      % ((y[np.where(p == y)].size / float(y.size)) * 100.0))
