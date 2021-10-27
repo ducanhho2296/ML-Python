@@ -1,6 +1,5 @@
 import numpy as np
 from matplotlib.pylab import scatter, show, legend, xlabel, ylabel
-import scipy.optimize as opt
 import function
 
 data = np.loadtxt('ex2data1.txt', delimiter=',')
