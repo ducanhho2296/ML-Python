@@ -9,3 +9,8 @@ def lrCostFuntion(theta, X, y, Lambda):
     error = (-y * np.log(predictions)) - (1 - y) * np.log(1 - predictions)
     cost = (1/m) * sum(error)
     regCost = cost + Lambda/(2 * m) * sum(theta[1:] ** 2)
+
+    #gradient
+    j_0 = 1/m * (X.transpose() @ (predictions - y))[0]
+    j_1 = 1 / m (X.transpose() @ (predictions - y))[1:] + (Lambda/m) * theta[1:]
+    grad = np.vstack((j))
