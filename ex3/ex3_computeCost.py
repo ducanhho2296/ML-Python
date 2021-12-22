@@ -29,3 +29,5 @@ input("Press Enter to continue...")
 "-------------------------------"
 "prediction for OnevsAll"
 pred = predictOnevsAll(all_theta, X)
+
+print("Training set accuracy:", np.argmax(pred==y) * 100,"%")
