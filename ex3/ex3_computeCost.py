@@ -24,3 +24,8 @@ J, grad = lrCostFuntion(theta_t, X_t, y_t, 3)
 
 print("cost:", J, "Expected cost: 2.534819")
 print("Gradients:\n",grad,"\nExpected gradients:\n 0.146561\n -0.548558\n 0.724722\n 1.398003")
+
+input("Press Enter to continue...")
+"-------------------------------"
+"prediction for OnevsAll"
+pred = predictOnevsAll(all_theta, X)
