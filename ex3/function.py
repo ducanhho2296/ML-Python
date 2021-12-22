@@ -42,4 +42,9 @@ def onevsAll(X, y, num_labels, Lambda):
 
 def predictOnevsAll(all_theta, X):
     m = X.shape[0]
+    X = np.hstack((np.ones((m,1)),X))
+
+    predictions = np.dot(X, all_theta.T)
+    return np.argmax(predictions, axis=1) + 1
+
 
