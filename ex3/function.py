@@ -41,4 +41,5 @@ def onevsAll(X, y, num_labels, Lambda):
     return np.array(all_theta).reshape(num_labels, n+1), all_J
 
 def predictOnevsAll(all_theta, X):
+    m = X.shape[0]
 
