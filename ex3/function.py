@@ -15,3 +15,5 @@ def lrCostFuntion(theta, X, y, Lambda):
     j_1 = (1 / m) * (X.transpose() @ (predictions - y))[1:] + (Lambda/m) * theta[1:]
     grad = np.vstack((j_0[:,np.newaxis],j_1))
     return regCost[0], grad
+
+def gradientDecent
