@@ -16,7 +16,29 @@ def lrCostFuntion(theta, X, y, Lambda):
     grad = np.vstack((j_0[:,np.newaxis],j_1))
     return regCost[0], grad
 
-def gradientDecent(X,y theta, alpha,num_iters, Lambda):
+def gradientDecent(X,y, theta, alpha, num_iters, Lambda):
     m = len(y)
     J_history = []
+
+    for i in range(num_iters):
+        cost, grad = lrCostFuntion(theta, X, y, Lambda)
+        theta = theta - (alpha * grad)
+        J_history.append(cost)
+    return theta, J_history
+
+def onevsAll(X, y, num_labels, Lambda):
+    m, n = X.shape[0], X.shape[1]
+    init_theta = np.zeros((n+1,1))
+    all_theta = []
+    all_J = []
+
+    X = np.hstack((np.ones((m,1)),X))
+
+    for i in range(1, num_labels + 1):
+        theta, J_history = gradientDecent(X, np.where(y==i, 1, 0), init_theta,1,300, Lambda)
+        all_theta.append(theta)
+        all_J.append(J_history)
+    return np.array(all_theta).reshape(num_labels, n+1), all_J
+
+
 
